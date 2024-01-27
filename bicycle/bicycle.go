@@ -15,7 +15,7 @@ func NewBicycle(properties ...func(*Bicycle)) *Bicycle {
 	bike := &Bicycle{
 		Brand:  "Unknown",
 		Color:  "Unspecified",
-		Weight: 0,
+		Weight: 999,
 	}
 
 	// Apply specified properties

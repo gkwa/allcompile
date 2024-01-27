@@ -1,9 +1,5 @@
 package sailboat
 
-import (
-	"fmt"
-)
-
 type Sailboat struct {
 	Brand  string
 	Color  string
@@ -15,7 +11,7 @@ func NewSailboat(properties ...func(*Sailboat)) *Sailboat {
 	boat := &Sailboat{
 		Brand:  "Unknown",
 		Color:  "Unspecified",
-		Length: 0,
+		Length: 999,
 	}
 
 	// Apply specified properties
@@ -45,9 +41,4 @@ func WithLength(length int) func(*Sailboat) {
 	return func(b *Sailboat) {
 		b.Length = length
 	}
-}
-
-// String returns a string representation of the Sailboat.
-func (b *Sailboat) String() string {
-	return fmt.Sprintf("Brand: %s\nColor: %s\nLength: %d", b.Brand, b.Color, b.Length)
 }

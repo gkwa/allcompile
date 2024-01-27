@@ -1,7 +1,14 @@
 * allcompile
 
-This is a description of my allcompile.
+** purpose: how to set default values in golang constructors
+
+So far the builder pattern wins for friendly interface as well as
+doing the right thing.
 
 ** Usage
 
-To use my project, run this command: ./allcompile --verbose
+#+begin_example
+make
+./allcompile bicycle
+./allcompile sailboat
+#+end_example

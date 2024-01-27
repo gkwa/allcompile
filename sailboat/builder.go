@@ -8,7 +8,11 @@ type SailboatBuilder struct {
 
 // NewSailboatBuilder creates a new SailboatBuilder with default values.
 func NewSailboatBuilder() *SailboatBuilder {
-	return &SailboatBuilder{boat: &Sailboat{}}
+	return &SailboatBuilder{boat: &Sailboat{
+		Brand:  "Unknown",
+		Color:  "Unspecified",
+		Length: 999,
+	}}
 }
 
 // Brand sets the brand property of the sailboat.

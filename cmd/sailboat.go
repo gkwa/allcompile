@@ -21,7 +21,6 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("sailboat called")
 		runSailboat()
 	},
 }
@@ -41,43 +40,21 @@ func init() {
 }
 
 func runSailboat() {
-	// Using the SailboatBuilder to create instances with specified properties
-	sailboat1 := sailboat.NewSailboatBuilder().
-		Brand("Giant").
-		Color("Blue").
-		Build()
-
-	sailboat2 := sailboat.NewSailboatBuilder().
-		Color("Green").
-		Build()
-
-	// Printing information about the Sailboats
+	boat1 := sailboat.NewSailboat()
 	fmt.Println("Sailboat 1:")
-	fmt.Println(sailboat1.String())
-
-	fmt.Println()
-
-	fmt.Println("Sailboat 2:")
-	fmt.Println(sailboat2.String())
-
-	// Using the SailboatBuilder to create instances with specified properties
-	boat1 := sailboat.NewSailboatBuilder().
-		Brand("Sunfish").
-		Color("White").
-		Length(14).
-		Build()
+	fmt.Println(boat1.String())
 
 	boat2 := sailboat.NewSailboatBuilder().
 		Brand("Hobie Cat").
-		Length(16).
 		Build()
-
-	// Printing information about the sailboats
-	fmt.Println("\nSailboat 1:")
-	fmt.Println(boat1.String())
-
 	fmt.Println()
-
 	fmt.Println("Sailboat 2:")
 	fmt.Println(boat2.String())
+
+	boat3 := sailboat.NewSailboat(
+		sailboat.WithLength(100),
+	)
+	fmt.Println()
+	fmt.Println("Sailboat 3:")
+	fmt.Println(boat3.String())
 }
