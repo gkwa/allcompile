@@ -31,6 +31,13 @@ to quickly create a Cobra application.`,
 		// Creating a new generic Bicycle instance with default values
 		bike2 := bicycle.NewBicycle(bicycle.WithColor("Green"))
 
+		// Creating a new Bicycle without using NewBicycle function
+		bike3 := &bicycle.Bicycle{
+			Brand:  "Specialized",
+			Color:  "Red",
+			Weight: 12,
+		}
+
 		// Displaying information about the first bicycle
 		fmt.Println("Bicycle 1:")
 		fmt.Println(bike1.String())
@@ -49,6 +56,12 @@ to quickly create a Cobra application.`,
 		bike2.Pedal()
 		bike2.Brake()
 
+		fmt.Println()
+
+		// Performing some actions on the 3rd bicycle
+		fmt.Println("Bicycle 3:")
+		bike3.Brake()
+		fmt.Println(bike3.String())
 	},
 }
 
