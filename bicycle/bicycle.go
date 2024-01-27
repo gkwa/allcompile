@@ -16,9 +16,13 @@ func (b *Bicycle) String() string {
 
 	builder.WriteString("Brand: ")
 	builder.WriteString(b.Brand)
-	builder.WriteString("\nColor: ")
+
+	builder.WriteString("\n")
+	builder.WriteString("Color: ")
 	builder.WriteString(b.Color)
-	builder.WriteString("\nWeight: ")
+
+	builder.WriteString("\n")
+	builder.WriteString("Weight: ")
 	builder.WriteString(fmt.Sprintf("%d", b.Weight))
 
 	return builder.String()

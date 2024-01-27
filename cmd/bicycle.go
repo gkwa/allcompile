@@ -38,6 +38,11 @@ to quickly create a Cobra application.`,
 			Weight: 12,
 		}
 
+		// Creating a new Bicycle without using NewBicycle function
+		bike4 := &bicycle.Bicycle{
+			Brand: "SpeedX",
+		}
+
 		// Displaying information about the first bicycle
 		fmt.Println("Bicycle 1:")
 		fmt.Println(bike1.String())
@@ -62,6 +67,13 @@ to quickly create a Cobra application.`,
 		fmt.Println("Bicycle 3:")
 		bike3.Brake()
 		fmt.Println(bike3.String())
+
+		fmt.Println()
+
+		// Performing some actions on the 3rd bicycle
+		fmt.Println("Bicycle 4:")
+		bike3.Pedal()
+		fmt.Println(bike4.String())
 	},
 }
 
