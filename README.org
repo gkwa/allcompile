@@ -1,0 +1,7 @@
+* allcompile
+
+This is a description of my allcompile.
+
+** Usage
+
+To use my project, run this command: ./allcompile --verbose
