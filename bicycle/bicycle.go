@@ -2,30 +2,12 @@ package bicycle
 
 import (
 	"fmt"
-	"strings"
 )
 
 type Bicycle struct {
 	Brand  string
 	Color  string
 	Weight int
-}
-
-func (b *Bicycle) String() string {
-	var builder strings.Builder
-
-	builder.WriteString("Brand: ")
-	builder.WriteString(b.Brand)
-
-	builder.WriteString("\n")
-	builder.WriteString("Color: ")
-	builder.WriteString(b.Color)
-
-	builder.WriteString("\n")
-	builder.WriteString("Weight: ")
-	builder.WriteString(fmt.Sprintf("%d", b.Weight))
-
-	return builder.String()
 }
 
 // NewBicycle creates a new Bicycle instance with default values and allows specifying properties.
