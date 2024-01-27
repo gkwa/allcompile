@@ -21,59 +21,7 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		// Creating a new Bicycle instance with specified properties
-		bike1 := bicycle.NewBicycle(
-			bicycle.WithBrand("Giant"),
-			bicycle.WithColor("Blue"),
-			bicycle.WithWeight(10),
-		)
-
-		// Creating a new generic Bicycle instance with default values
-		bike2 := bicycle.NewBicycle(bicycle.WithColor("Green"))
-
-		// Creating a new Bicycle without using NewBicycle function
-		bike3 := &bicycle.Bicycle{
-			Brand:  "Specialized",
-			Color:  "Red",
-			Weight: 12,
-		}
-
-		// Creating a new Bicycle without using NewBicycle function
-		bike4 := &bicycle.Bicycle{
-			Brand: "SpeedX",
-		}
-
-		// Displaying information about the first bicycle
-		fmt.Println("Bicycle 1:")
-		fmt.Println(bike1.String())
-
-		// Performing some actions on the first bicycle
-		bike1.Pedal()
-		bike1.Brake()
-
-		fmt.Println()
-
-		// Displaying information about the second bicycle
-		fmt.Println("Bicycle 2:")
-		fmt.Println(bike2.String())
-
-		// Performing some actions on the second bicycle
-		bike2.Pedal()
-		bike2.Brake()
-
-		fmt.Println()
-
-		// Performing some actions on the 3rd bicycle
-		fmt.Println("Bicycle 3:")
-		bike3.Brake()
-		fmt.Println(bike3.String())
-
-		fmt.Println()
-
-		// Performing some actions on the 3rd bicycle
-		fmt.Println("Bicycle 4:")
-		bike3.Pedal()
-		fmt.Println(bike4.String())
+		run()
 	},
 }
 
@@ -89,4 +37,59 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// bicycleCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+}
+
+func run() {
+	bike1 := bicycle.NewBicycle(
+		bicycle.WithBrand("Giant"),
+		bicycle.WithColor("Blue"),
+		bicycle.WithWeight(10),
+	)
+
+	fmt.Println("Bicycle 1:")
+	fmt.Println(bike1.String())
+
+	bike1.Pedal()
+	bike1.Brake()
+
+	fmt.Println()
+
+	bike2 := bicycle.NewBicycle(bicycle.WithColor("Green"))
+
+	fmt.Println("Bicycle 2:")
+	fmt.Println(bike2.String())
+
+	bike2.Pedal()
+	bike2.Brake()
+
+	bike3 := &bicycle.Bicycle{
+		Brand:  "Specialized",
+		Color:  "Red",
+		Weight: 12,
+	}
+
+	fmt.Println("Bicycle 3:")
+	bike3.Brake()
+	fmt.Println(bike3.String())
+
+	fmt.Println()
+
+	bike4 := &bicycle.Bicycle{
+		Brand: "SpeedX",
+	}
+
+	fmt.Println("Bicycle 4:")
+	bike4.Pedal()
+	fmt.Println(bike4.String())
+
+	fmt.Println()
+
+	bike5 := bicycle.NewBicycle(
+		bicycle.WithBrand("Giant"),
+		bicycle.WithWeight(10),
+	)
+
+	fmt.Println("Bicycle 5:")
+	bike5.Pedal()
+	fmt.Println(bike5.String())
 }
