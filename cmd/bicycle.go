@@ -22,14 +22,14 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		// Creating a new Bicycle instance with specified properties
-		bike1 := &bicycle.Bicycle{
-			Brand:  "Giant",
-			Color:  "Blue",
-			Weight: 10,
-		}
+		bike1 := bicycle.NewBicycle(
+			bicycle.WithBrand("Giant"),
+			bicycle.WithColor("Blue"),
+			bicycle.WithWeight(10),
+		)
 
 		// Creating a new generic Bicycle instance with default values
-		bike2 := bicycle.NewBicycle()
+		bike2 := bicycle.NewBicycle(bicycle.WithColor("Green"))
 
 		// Displaying information about the first bicycle
 		fmt.Println("Bicycle 1:")
