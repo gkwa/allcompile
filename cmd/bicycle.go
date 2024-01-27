@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/taylormonacelli/allcompile/bicycle"
+	runBicycle "github.com/taylormonacelli/allcompile/bicycle"
 )
 
 // bicycleCmd represents the bicycle command
@@ -40,10 +40,10 @@ func init() {
 }
 
 func run() {
-	bike1 := bicycle.NewBicycle(
-		bicycle.WithBrand("Giant"),
-		bicycle.WithColor("Blue"),
-		bicycle.WithWeight(10),
+	bike1 := runBicycle.NewBicycle(
+		runBicycle.WithBrand("Giant"),
+		runBicycle.WithColor("Blue"),
+		runBicycle.WithWeight(10),
 	)
 
 	fmt.Println("Bicycle 1:")
@@ -54,7 +54,7 @@ func run() {
 
 	fmt.Println()
 
-	bike2 := bicycle.NewBicycle(bicycle.WithColor("Green"))
+	bike2 := runBicycle.NewBicycle(runBicycle.WithColor("Green"))
 
 	fmt.Println("Bicycle 2:")
 	fmt.Println(bike2.String())
@@ -62,7 +62,7 @@ func run() {
 	bike2.Pedal()
 	bike2.Brake()
 
-	bike3 := &bicycle.Bicycle{
+	bike3 := &runBicycle.Bicycle{
 		Brand:  "Specialized",
 		Color:  "Red",
 		Weight: 12,
@@ -74,7 +74,7 @@ func run() {
 
 	fmt.Println()
 
-	bike4 := &bicycle.Bicycle{
+	bike4 := &runBicycle.Bicycle{
 		Brand: "SpeedX",
 	}
 
@@ -84,9 +84,9 @@ func run() {
 
 	fmt.Println()
 
-	bike5 := bicycle.NewBicycle(
-		bicycle.WithBrand("Giant"),
-		bicycle.WithWeight(10),
+	bike5 := runBicycle.NewBicycle(
+		runBicycle.WithBrand("Giant"),
+		runBicycle.WithWeight(10),
 	)
 
 	fmt.Println("Bicycle 5:")
