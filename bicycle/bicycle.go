@@ -11,14 +11,6 @@ type Bicycle struct {
 	Weight int
 }
 
-func NewBicycle(brand, color string, weight int) *Bicycle {
-	return &Bicycle{
-		Brand:  brand,
-		Color:  color,
-		Weight: weight,
-	}
-}
-
 func (b *Bicycle) String() string {
 	var builder strings.Builder
 
@@ -38,4 +30,13 @@ func (b *Bicycle) Pedal() {
 
 func (b *Bicycle) Brake() {
 	fmt.Println("Applying brakes to the bicycle.")
+}
+
+// NewBicycle creates a new Bicycle instance with default values.
+func NewBicycle() *Bicycle {
+	return &Bicycle{
+		Brand:  "Unknown",
+		Color:  "Unspecified",
+		Weight: 0,
+	}
 }
