@@ -46,6 +46,7 @@ func run() {
 		bicycle.WithWeight(10),
 	)
 
+	fmt.Println()
 	fmt.Println("Bicycle 1:")
 	fmt.Println(bike1.String())
 
