@@ -37,22 +37,28 @@ func init() {
 }
 
 func runBasketball() {
+	var ballFactory basketball.BallFactory
+
 	// Create a basketball with default properties
-	ballFactory := basketball.NewBasketballFactory()
-	basketball1 := ballFactory.CreateBall()
+	ballFactory = basketball.NewBasketballFactory()
+	b1 := ballFactory.CreateBasketBall()
 
 	fmt.Println()
 	fmt.Println("Basketball 1:")
-	fmt.Println(basketball1)
+	fmt.Println(b1)
 
-	// Create a basketball with custom properties
-	basketball2 := ballFactory.CreateBall(
-		basketball.WithSize(6),
+	// Create a basketball with default properties
+	ballFactory = basketball.NewBasketballFactory(
+		basketball.WithSize(10),
 		basketball.WithColor("Red"),
 		basketball.WithWeight(20),
 	)
 
+	// Create a basketball with the specified custom properties
+	b2 := ballFactory.CreateBasketBall()
+
+	// Use basketballInstance as needed
 	fmt.Println()
 	fmt.Println("Basketball 2:")
-	fmt.Println(basketball2)
+	fmt.Println(b2)
 }

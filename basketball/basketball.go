@@ -1,54 +1,59 @@
 package basketball
 
-import "fmt"
-
-// Ball represents a basketball.
-type Ball struct {
+type BasketBall struct {
 	Size   int
 	Color  string
 	Weight int
 }
 
-// BallFactory is the interface for creating basketballs.
 type BallFactory interface {
-	CreateBall() *Ball
+	CreateBasketBall() *BasketBall
 }
 
-// NewBasketballFactory creates a factory for creating basketballs.
-func NewBasketballFactory() BallFactory {
-	return &BasketballFactory{}
+func NewBasketballFactory(options ...func(*basketballFactory)) BallFactory {
+	factory := &basketballFactory{
+		Size:   7,        // Default values
+		Color:  "Orange", // Default values
+		Weight: 22,       // Default values
+	}
+
+	for _, option := range options {
+		option(factory)
+	}
+
+	return factory
 }
 
-// BasketballFactory is the concrete factory for creating basketballs.
-type BasketballFactory struct{}
+type basketballFactory struct {
+	Size   int
+	Color  string
+	Weight int
+}
 
-// CreateBall creates a basketball with default properties.
-func (f *BasketballFactory) CreateBall() *Ball {
-	return &Ball{
-		Size:   7, // Standard basketball size
-		Color:  "Orange",
-		Weight: 22, // Standard basketball weight in ounces
+func (f *basketballFactory) CreateBasketBall() *BasketBall {
+	ball := &BasketBall{
+		Size:   f.Size,
+		Color:  f.Color,
+		Weight: f.Weight,
+	}
+
+	return ball
+}
+
+func WithSize(size int) func(*basketballFactory) {
+	return func(f *basketballFactory) {
+		f.Size = size
 	}
 }
 
-// WithSize is a factory method option to set the size of the basketball.
-func WithSize(size int) func(*Ball) {
-	return func(b *Ball) {
-		b.Size = size
+func WithColor(color string) func(*basketballFactory) {
+	return func(f *basketballFactory) {
+		f.Color = color
 	}
 }
 
-// WithColor is a factory method option to set the color of the basketball.
-func WithColor(color string) func(*Ball) {
-	return func(b *Ball) {
-		b.Color = color
+func WithWeight(weight int) func(*basketballFactory) {
+	return func(f *basketballFactory) {
+		f.Weight = weight
 	}
 }
-
-// WithWeight is a factory method option to set the weight of the basketball.
-func WithWeight(weight int) func(*Ball) {
-	return func(b *Ball) {
-		b.Weight = weight
-	}
-}
-
