@@ -1,11 +1,10 @@
 * allcompile
-
 ** purpose: how to set default values in golang constructors
 
 So far the builder pattern wins for friendly interface as well as
 doing the right thing.
 
-** Usage
+** usage
 
 #+begin_example
 make
@@ -21,7 +20,19 @@ make
 
 Factory Method is a creational design pattern
 
+*** skis: prototype pattern
+
+Here is example using functional options, but please write example
+using skis in context of skiing instead of bicycles for the prototype
+design pattern.
+
+Please show full code and use txtar format
+
 ** gpt
+
+*** topic
+
+https://chat.openai.com/c/661c1e1f-5f82-43a2-a3fa-e9496eb6447c
 
 *** 
 
