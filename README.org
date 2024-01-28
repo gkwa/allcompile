@@ -13,6 +13,7 @@ make
 #+end_example
 
 ** 
+*** hockey: composite literal
 *** bicycle: functional options
 *** sailboat: builder pattern
 *** kite: functional options
