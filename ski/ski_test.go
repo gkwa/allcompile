@@ -16,7 +16,7 @@ func TestSkiPrototype(t *testing.T) {
 		expected *Ski
 	}{
 		{
-			desc: "Ski 1: Customized properties",
+			desc: "Ski 1: all default properties overridden",
 			modifyFn: func(s *Ski) {
 				s.Brand = "Atomic"
 				s.Color = "Red"
@@ -29,7 +29,7 @@ func TestSkiPrototype(t *testing.T) {
 			},
 		},
 		{
-			desc: "Ski 2: Different Color",
+			desc: "Ski 2: single property overridden",
 			modifyFn: func(s *Ski) {
 				s.Color = "Blue"
 			},
@@ -40,7 +40,7 @@ func TestSkiPrototype(t *testing.T) {
 			},
 		},
 		{
-			desc: "Ski 3: Default Prototype",
+			desc: "Ski 3: no properties overridden",
 			modifyFn: func(s *Ski) {
 				// No modifications, using default prototype
 			},
