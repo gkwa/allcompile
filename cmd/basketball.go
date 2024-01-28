@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/taylormonacelli/allcompile/basketball"
+	ball "github.com/taylormonacelli/allcompile/basketball"
 )
 
 // basketballCmd represents the basketball command
@@ -37,27 +37,23 @@ func init() {
 }
 
 func runBasketball() {
-	var ballFactory basketball.BallFactory
+	var ballFactory ball.BallFactory
 
-	// Create a basketball with default properties
-	ballFactory = basketball.NewBasketballFactory()
+	ballFactory = ball.NewBasketballFactory()
 	b1 := ballFactory.CreateBasketBall()
 
 	fmt.Println()
 	fmt.Println("Basketball 1:")
 	fmt.Println(b1)
 
-	// Create a basketball with default properties
-	ballFactory = basketball.NewBasketballFactory(
-		basketball.WithSize(10),
-		basketball.WithColor("Red"),
-		basketball.WithWeight(20),
+	ballFactory = ball.NewBasketballFactory(
+		ball.WithSize(10),
+		ball.WithColor("Red"),
+		ball.WithWeight(20),
 	)
 
-	// Create a basketball with the specified custom properties
 	b2 := ballFactory.CreateBasketBall()
 
-	// Use basketballInstance as needed
 	fmt.Println()
 	fmt.Println("Basketball 2:")
 	fmt.Println(b2)
