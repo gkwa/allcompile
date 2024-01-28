@@ -12,3 +12,45 @@ make
 ./allcompile bicycle
 ./allcompile sailboat
 #+end_example
+
+** 
+*** bicycle: functional options
+*** sailboat: builder pattern
+*** kite: functional options
+*** basketball: factory method
+
+Factory Method is a creational design pattern
+
+** gpt
+
+*** 
+
+Let's compare and contrast the constructors for Kite and Bicycle:
+
+*** Similarities
+
+Functional Options:
+Both Kite and Bicycle use functional options for their constructors, providing a flexible way to initialize properties.
+
+Default Values:
+Both constructors have default values for properties. If a property is not explicitly set using functional options, it takes the default value.
+
+*** 
+
+Bicycle uses functional options in a variadic manner directly in the NewBicycle constructor.
+
+*** 
+
+Kite uses functional options in a separate NewKite constructor.
+
+*** Builder Pattern
+
+Bicycle does not use a builder pattern explicitly.
+
+Sailboat (in the original example) uses a builder pattern, which is a different construction approach.
+
+*** Method Usage
+
+Bicycle has methods like Pedal and Brake that are specific to bicycles.
+
+Kite does not have additional methods in the provided code, making it simpler.
