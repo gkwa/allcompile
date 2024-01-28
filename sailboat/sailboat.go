@@ -12,8 +12,8 @@ type SailboatBuilder struct {
 
 func NewSailboatBuilder() *SailboatBuilder {
 	return &SailboatBuilder{boat: &Sailboat{
-		Brand:  "Unknown",
-		Color:  "Unspecified",
+		Brand:  "DefaultBrand",
+		Color:  "DefaultColor",
 		Length: 999,
 	}}
 }

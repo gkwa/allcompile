@@ -11,7 +11,7 @@ func TestSailboatProperties(t *testing.T) {
 		expected    Sailboat
 	}{
 		{
-			desc: "Sailboat 1: brand specified",
+			desc: "Sailboat 1: single property specified using builder pattern",
 			constructor: func() *Sailboat {
 				return NewSailboatBuilder().
 					Brand("Hobie Cat").
@@ -19,24 +19,24 @@ func TestSailboatProperties(t *testing.T) {
 			},
 			expected: Sailboat{
 				Brand:  "Hobie Cat",
-				Color:  "Unspecified",
+				Color:  "DefaultColor",
 				Length: 999,
 			},
 		},
 		{
-			desc: "Sailboat 2: defaults",
+			desc: "Sailboat 2: no properties specified using builder pattern",
 			constructor: func() *Sailboat {
 				return NewSailboatBuilder().
 					Build()
 			},
 			expected: Sailboat{
-				Brand:  "Unknown",
-				Color:  "Unspecified",
+				Brand:  "DefaultBrand",
+				Color:  "DefaultColor",
 				Length: 999,
 			},
 		},
 		{
-			desc: "Sailboat 3: all properties specified",
+			desc: "Sailboat 3: all properties specified using builder pattern",
 			constructor: func() *Sailboat {
 				return NewSailboatBuilder().
 					Color("Blue").
