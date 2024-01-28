@@ -8,9 +8,12 @@ explicitely specified.
 ** usage
 
 #+begin_example
-make
+make test
 ./allcompile bicycle
 ./allcompile sailboat
+./allcompile kite
+./allcompile ski
+./allcompile basketball
 #+end_example
 
 ** 
@@ -30,26 +33,32 @@ design pattern.
 Please show full code and use txtar format
 
 ** gpt
-
 *** topic
 
 https://chat.openai.com/c/661c1e1f-5f82-43a2-a3fa-e9496eb6447c
 
 *** 
 
-Let's compare and contrast the constructors for Kite and Bicycle:
+Let's compare and contrast the constructors for Kite and Bicycle
 
 *** Similarities
 
 Functional Options:
-Both Kite and Bicycle use functional options for their constructors, providing a flexible way to initialize properties.
+
+Both Kite and Bicycle use functional options for their constructors,
+providing a flexible way to initialize properties.
 
 Default Values:
-Both constructors have default values for properties. If a property is not explicitly set using functional options, it takes the default value.
+
+Both constructors have default values for properties.
+
+If a property is not explicitly set using functional options, it takes
+the default value.
 
 *** 
 
-Bicycle uses functional options in a variadic manner directly in the NewBicycle constructor.
+Bicycle uses functional options in a variadic manner directly in the
+NewBicycle constructor.
 
 *** 
 
@@ -59,10 +68,14 @@ Kite uses functional options in a separate NewKite constructor.
 
 Bicycle does not use a builder pattern explicitly.
 
-Sailboat (in the original example) uses a builder pattern, which is a different construction approach.
+Sailboat (in the original example) uses a builder pattern, which is a
+different construction approach.
 
 *** Method Usage
 
-Bicycle has methods like Pedal and Brake that are specific to bicycles.
+Bicycle has methods like Pedal and Brake that are specific to
+bicycles.
 
-Kite does not have additional methods in the provided code, making it simpler.
+Kite does not have additional methods in the provided code, making it
+simpler.
+
