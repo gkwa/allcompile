@@ -4,60 +4,53 @@ import (
 	"testing"
 )
 
-func TestSailboatProperties(t *testing.T) {
-	testCases := []struct {
-		desc        string
-		constructor func() *Sailboat
-		expected    Sailboat
-	}{
-		{
-			desc: "Sailboat 1: single property specified using builder pattern",
-			constructor: func() *Sailboat {
-				return NewSailboatBuilder().
-					Brand("Hobie Cat").
-					Build()
-			},
-			expected: Sailboat{
-				Brand:  "Hobie Cat",
-				Color:  "DefaultColor",
-				Length: 999,
-			},
-		},
-		{
-			desc: "Sailboat 2: no properties specified using builder pattern",
-			constructor: func() *Sailboat {
-				return NewSailboatBuilder().
-					Build()
-			},
-			expected: Sailboat{
-				Brand:  "DefaultBrand",
-				Color:  "DefaultColor",
-				Length: 999,
-			},
-		},
-		{
-			desc: "Sailboat 3: all properties specified using builder pattern",
-			constructor: func() *Sailboat {
-				return NewSailboatBuilder().
-					Color("Blue").
-					Brand("Catalina").
-					Length(16).
-					Build()
-			},
-			expected: Sailboat{
-				Brand:  "Catalina",
-				Color:  "Blue",
-				Length: 16,
-			},
-		},
+func TestSailboatWithSingleProperty(t *testing.T) {
+	expected := Sailboat{
+		Brand:  "Hobie Cat",
+		Color:  "DefaultColor",
+		Length: 999,
 	}
 
-	for _, tc := range testCases {
-		t.Run(tc.desc, func(t *testing.T) {
-			boat := tc.constructor()
-			if *boat != tc.expected {
-				t.Errorf("Expected %v, Got %v", tc.expected, *boat)
-			}
-		})
+	boat := NewSailboatBuilder().
+		Brand("Hobie Cat").
+		Build()
+
+	assertSailboatProperties(t, expected, *boat, "Sailboat with single property")
+}
+
+func TestSailboatWithNoProperties(t *testing.T) {
+	expected := Sailboat{
+		Brand:  "DefaultBrand",
+		Color:  "DefaultColor",
+		Length: 999,
 	}
+
+	boat := NewSailboatBuilder().
+		Build()
+
+	assertSailboatProperties(t, expected, *boat, "Sailboat with no properties")
+}
+
+func TestSailboatWithAllProperties(t *testing.T) {
+	expected := Sailboat{
+		Brand:  "Catalina",
+		Color:  "Blue",
+		Length: 16,
+	}
+
+	boat := NewSailboatBuilder().
+		Color("Blue").
+		Brand("Catalina").
+		Length(16).
+		Build()
+
+	assertSailboatProperties(t, expected, *boat, "Sailboat with all properties")
+}
+
+func assertSailboatProperties(t *testing.T, expected, actual Sailboat, desc string) {
+	t.Run(desc, func(t *testing.T) {
+		if expected != actual {
+			t.Errorf("Expected %v, Got %v", expected, actual)
+		}
+	})
 }

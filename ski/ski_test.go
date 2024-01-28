@@ -5,60 +5,50 @@ import (
 	"testing"
 )
 
-func equalSki(a, b *Ski) bool {
-	return reflect.DeepEqual(a, b)
+func TestSkiWithAllPropertiesOverridden(t *testing.T) {
+	expected := &Ski{
+		Brand:  "Atomic",
+		Color:  "Red",
+		Length: 180,
+	}
+
+	ski := NewSkiPrototype()
+	ski.Brand = "Atomic"
+	ski.Color = "Red"
+	ski.Length = 180
+
+	assertSkiProperties(t, expected, ski, "Ski with all properties overridden")
 }
 
-func TestSkiPrototype(t *testing.T) {
-	testCases := []struct {
-		desc     string
-		modifyFn func(*Ski)
-		expected *Ski
-	}{
-		{
-			desc: "Ski 1: all default properties overridden",
-			modifyFn: func(s *Ski) {
-				s.Brand = "Atomic"
-				s.Color = "Red"
-				s.Length = 180
-			},
-			expected: &Ski{
-				Brand:  "Atomic",
-				Color:  "Red",
-				Length: 180,
-			},
-		},
-		{
-			desc: "Ski 2: single property overridden",
-			modifyFn: func(s *Ski) {
-				s.Color = "Blue"
-			},
-			expected: &Ski{
-				Brand:  "DefaultBrand",
-				Color:  "Blue",
-				Length: 170,
-			},
-		},
-		{
-			desc: "Ski 3: no properties overridden",
-			modifyFn: func(s *Ski) {
-				// No modifications, using default prototype
-			},
-			expected: &Ski{
-				Brand:  "DefaultBrand",
-				Color:  "DefaultColor",
-				Length: 170,
-			},
-		},
+func TestSkiWithSinglePropertyOverridden(t *testing.T) {
+	expected := &Ski{
+		Brand:  "DefaultBrand",
+		Color:  "Blue",
+		Length: 170,
 	}
 
-	for _, tc := range testCases {
-		t.Run(tc.desc, func(t *testing.T) {
-			prototype := NewSkiPrototype()
-			tc.modifyFn(prototype)
-			if !equalSki(prototype, tc.expected) {
-				t.Errorf("Expected %+v, Got %+v", tc.expected, prototype)
-			}
-		})
+	ski := NewSkiPrototype()
+	ski.Color = "Blue"
+
+	assertSkiProperties(t, expected, ski, "Ski with single property overridden")
+}
+
+func TestSkiWithNoPropertiesOverridden(t *testing.T) {
+	expected := &Ski{
+		Brand:  "DefaultBrand",
+		Color:  "DefaultColor",
+		Length: 170,
 	}
+
+	ski := NewSkiPrototype()
+
+	assertSkiProperties(t, expected, ski, "Ski with no properties overridden")
+}
+
+func assertSkiProperties(t *testing.T, expected, actual *Ski, desc string) {
+	t.Run(desc, func(t *testing.T) {
+		if !reflect.DeepEqual(expected, actual) {
+			t.Errorf("Expected %+v, Got %+v", expected, actual)
+		}
+	})
 }

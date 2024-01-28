@@ -1,8 +1,9 @@
 * allcompile
-** purpose: how to set default values in golang constructors
+** purpose: learn how to set default values in golang constructors
 
 So far the builder pattern wins for friendly interface as well as
-doing the right thing.
+doing the right thing--not setting zero values for properties not
+explicitely specified.
 
 ** usage
 
