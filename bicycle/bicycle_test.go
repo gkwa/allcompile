@@ -22,9 +22,9 @@ func TestBicycleWithAllProperties(t *testing.T) {
 
 func TestBicycleWithSingleProperty(t *testing.T) {
 	expected := Bicycle{
-		Brand:  "DefaultBrand",
+		Brand:  DefaultBrand,
 		Color:  "Green",
-		Weight: 999,
+		Weight: DefaultWeight,
 	}
 
 	bike := NewBicycle(
@@ -66,9 +66,9 @@ func TestBicycleWithCompositeLiteralSingleProperty(t *testing.T) {
 
 func TestBicycleWithNoPropertiesUsingDefaults(t *testing.T) {
 	expected := Bicycle{
-		Brand:  "DefaultBrand",
-		Color:  "DefaultColor",
-		Weight: 999,
+		Brand:  DefaultBrand,
+		Color:  DefaultColor,
+		Weight: DefaultWeight,
 	}
 
 	bike := NewBicycle()

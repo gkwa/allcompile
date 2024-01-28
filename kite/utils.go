@@ -16,8 +16,8 @@ func (k *Kite) String() string {
 	builder.WriteString(k.Color)
 
 	builder.WriteString("\n")
-	builder.WriteString("Length: ")
-	builder.WriteString(fmt.Sprintf("%d", k.Length))
+	builder.WriteString("Weight: ")
+	builder.WriteString(fmt.Sprintf("%d", k.Weight))
 
 	return builder.String()
 }

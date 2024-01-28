@@ -9,8 +9,8 @@ import (
 func (b *BasketBall) String() string {
 	var builder strings.Builder
 
-	builder.WriteString("Size: ")
-	builder.WriteString(fmt.Sprintf("%d", b.Size))
+	builder.WriteString("Brand: ")
+	builder.WriteString(b.Brand)
 
 	builder.WriteString("\n")
 

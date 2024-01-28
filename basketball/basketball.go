@@ -1,10 +1,22 @@
 package basketball
 
 type BasketBall struct {
-	Size   int
+	Brand  string
 	Color  string
 	Weight int
 }
+
+type basketballFactory struct {
+	Brand  string
+	Color  string
+	Weight int
+}
+
+const (
+	DefaultBrand  = "DefaultBasketballBrand"
+	DefaultColor  = "DefaultBasketballColor"
+	DefaultWeight = 999
+)
 
 type BallFactory interface {
 	CreateBasketBall() *BasketBall
@@ -12,9 +24,9 @@ type BallFactory interface {
 
 func NewBasketballFactory(options ...func(*basketballFactory)) BallFactory {
 	factory := &basketballFactory{
-		Size:   7,        // Default values
-		Color:  "Orange", // Default values
-		Weight: 22,       // Default values
+		Brand:  DefaultBrand,
+		Color:  DefaultColor,
+		Weight: DefaultWeight,
 	}
 
 	for _, option := range options {
@@ -24,15 +36,9 @@ func NewBasketballFactory(options ...func(*basketballFactory)) BallFactory {
 	return factory
 }
 
-type basketballFactory struct {
-	Size   int
-	Color  string
-	Weight int
-}
-
 func (f *basketballFactory) CreateBasketBall() *BasketBall {
 	ball := &BasketBall{
-		Size:   f.Size,
+		Brand:  f.Brand,
 		Color:  f.Color,
 		Weight: f.Weight,
 	}
@@ -40,9 +46,9 @@ func (f *basketballFactory) CreateBasketBall() *BasketBall {
 	return ball
 }
 
-func WithSize(size int) func(*basketballFactory) {
+func WithBrand(brand string) func(*basketballFactory) {
 	return func(f *basketballFactory) {
-		f.Size = size
+		f.Brand = brand
 	}
 }
 

@@ -6,9 +6,9 @@ import (
 
 func TestBasketballWithDefaultProperties(t *testing.T) {
 	expected := BasketBall{
-		Size:   7,
-		Color:  "Orange",
-		Weight: 22,
+		Brand:  DefaultBrand,
+		Color:  DefaultColor,
+		Weight: DefaultWeight,
 	}
 
 	factory := NewBasketballFactory()
@@ -19,13 +19,13 @@ func TestBasketballWithDefaultProperties(t *testing.T) {
 
 func TestBasketballWithCustomProperties(t *testing.T) {
 	expected := BasketBall{
-		Size:   6,
+		Brand:  "Wilson",
 		Color:  "Red",
 		Weight: 21,
 	}
 
 	factory := NewBasketballFactory(
-		WithSize(6),
+		WithBrand("Wilson"),
 		WithColor("Red"),
 		WithWeight(21),
 	)
@@ -36,13 +36,13 @@ func TestBasketballWithCustomProperties(t *testing.T) {
 
 func TestBasketballWithSingleCustomProperty(t *testing.T) {
 	expected := BasketBall{
-		Size:   11,
-		Color:  "Orange",
-		Weight: 22,
+		Brand:  "Tribute",
+		Color:  DefaultColor,
+		Weight: DefaultWeight,
 	}
 
 	factory := NewBasketballFactory(
-		WithSize(11),
+		WithBrand("Tribute"),
 	)
 
 	basketball := factory.CreateBasketBall()

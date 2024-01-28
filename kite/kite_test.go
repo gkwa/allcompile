@@ -4,27 +4,27 @@ import (
 	"testing"
 )
 
-func TestKiteWithAllProperties(t *testing.T) {
+func TestKiteWithAllCustomProperties(t *testing.T) {
 	expected := Kite{
 		Brand:  "HighFly",
 		Color:  "Yellow",
-		Length: 50,
+		Weight: 50,
 	}
 
 	kite := NewKite(
 		WithBrand("HighFly"),
 		WithColor("Yellow"),
-		WithLength(50),
+		WithWeight(50),
 	)
 
 	assertKiteProperties(t, expected, *kite, "Kite with all properties")
 }
 
-func TestKiteWithSingleProperty(t *testing.T) {
+func TestKiteWithSingleCustomProperty(t *testing.T) {
 	expected := Kite{
-		Brand:  "DefaultBrand",
+		Brand:  DefaultBrand,
 		Color:  "Green",
-		Length: 999,
+		Weight: DefaultWeight,
 	}
 
 	kite := NewKite(
@@ -34,11 +34,11 @@ func TestKiteWithSingleProperty(t *testing.T) {
 	assertKiteProperties(t, expected, *kite, "Kite with single property")
 }
 
-func TestKiteWithDefaults(t *testing.T) {
+func TestKiteWithNoCustomProperties(t *testing.T) {
 	expected := Kite{
-		Brand:  "DefaultBrand",
-		Color:  "DefaultColor",
-		Length: 999,
+		Brand:  DefaultBrand,
+		Color:  DefaultColor,
+		Weight: DefaultWeight,
 	}
 
 	kite := NewKite()

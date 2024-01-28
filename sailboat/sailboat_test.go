@@ -7,8 +7,8 @@ import (
 func TestSailboatWithSingleProperty(t *testing.T) {
 	expected := Sailboat{
 		Brand:  "Hobie Cat",
-		Color:  "DefaultColor",
-		Length: 999,
+		Color:  DefaultColor,
+		Weight: DefaultWeight,
 	}
 
 	boat := NewSailboatBuilder().
@@ -20,9 +20,9 @@ func TestSailboatWithSingleProperty(t *testing.T) {
 
 func TestSailboatWithNoProperties(t *testing.T) {
 	expected := Sailboat{
-		Brand:  "DefaultBrand",
-		Color:  "DefaultColor",
-		Length: 999,
+		Brand:  DefaultBrand,
+		Color:  DefaultColor,
+		Weight: DefaultWeight,
 	}
 
 	boat := NewSailboatBuilder().
@@ -35,7 +35,7 @@ func TestSailboatWithAllProperties(t *testing.T) {
 	expected := Sailboat{
 		Brand:  "Catalina",
 		Color:  "Blue",
-		Length: 16,
+		Weight: 16,
 	}
 
 	boat := NewSailboatBuilder().

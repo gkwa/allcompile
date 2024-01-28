@@ -32,7 +32,7 @@ func runSki() {
 	ski1 := prototype.Clone()
 	ski1.Brand = "Atomic"
 	ski1.Color = "Red"
-	ski1.Length = 180
+	ski1.Weight = 180
 
 	fmt.Println()
 	fmt.Println("Ski 1:")

@@ -4,11 +4,11 @@ import (
 	"testing"
 )
 
-func TestGolfClubWithSingleProperty(t *testing.T) {
+func TestGolfClubWithSingleCustomizedProperty(t *testing.T) {
 	expected := GolfClub{
 		Brand:  "Titleist",
-		Type:   "DefaultType",
-		Length: 999,
+		Color:  DefaultColor,
+		Weight: DefaultWeight,
 	}
 
 	club := NewGolfClubBuilder().
@@ -18,11 +18,11 @@ func TestGolfClubWithSingleProperty(t *testing.T) {
 	assertGolfClubProperties(t, expected, *club, "Golf Club with single property")
 }
 
-func TestGolfClubWithNoProperties(t *testing.T) {
+func TestGolfClubWithNoCustomizedProperties(t *testing.T) {
 	expected := GolfClub{
-		Brand:  "DefaultBrand",
-		Type:   "DefaultType",
-		Length: 999,
+		Brand:  DefaultBrand,
+		Color:  DefaultColor,
+		Weight: DefaultWeight,
 	}
 
 	club := NewGolfClubBuilder().
@@ -31,11 +31,11 @@ func TestGolfClubWithNoProperties(t *testing.T) {
 	assertGolfClubProperties(t, expected, *club, "Golf Club with no properties")
 }
 
-func TestGolfClubWithAllProperties(t *testing.T) {
+func TestGolfClubWithAllCustomProperties(t *testing.T) {
 	expected := GolfClub{
 		Brand:  "Titleist",
-		Type:   "Putter",
-		Length: 35,
+		Color:  "Putter",
+		Weight: 35,
 	}
 
 	club := NewGolfClubBuilder().

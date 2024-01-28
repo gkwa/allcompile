@@ -4,6 +4,12 @@ import (
 	"fmt"
 )
 
+const (
+	DefaultBrand  = "DefaultBicycleBrand"
+	DefaultColor  = "DefaultBicycleColor"
+	DefaultWeight = 24
+)
+
 type Bicycle struct {
 	Brand  string
 	Color  string
@@ -12,9 +18,9 @@ type Bicycle struct {
 
 func NewBicycle(properties ...func(*Bicycle)) *Bicycle {
 	bike := &Bicycle{
-		Brand:  "DefaultBrand",
-		Color:  "DefaultColor",
-		Weight: 999,
+		Brand:  DefaultBrand,
+		Color:  DefaultColor,
+		Weight: DefaultWeight,
 	}
 
 	// Apply specified properties

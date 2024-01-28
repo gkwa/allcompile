@@ -16,8 +16,8 @@ func (s *Ski) String() string {
 	builder.WriteString(s.Color)
 
 	builder.WriteString("\n")
-	builder.WriteString("Length: ")
-	builder.WriteString(fmt.Sprintf("%d", s.Length))
+	builder.WriteString("Weight: ")
+	builder.WriteString(fmt.Sprintf("%d", s.Weight))
 
 	return builder.String()
 }

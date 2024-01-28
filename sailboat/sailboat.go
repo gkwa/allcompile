@@ -1,9 +1,15 @@
 package sailboat
 
+const (
+	DefaultBrand  = "DefaultSailboatBrand"
+	DefaultColor  = "DefaultSailboatColor"
+	DefaultWeight = 11
+)
+
 type Sailboat struct {
 	Brand  string
 	Color  string
-	Length int
+	Weight int
 }
 
 type SailboatBuilder struct {
@@ -12,9 +18,9 @@ type SailboatBuilder struct {
 
 func NewSailboatBuilder() *SailboatBuilder {
 	return &SailboatBuilder{boat: &Sailboat{
-		Brand:  "DefaultBrand",
-		Color:  "DefaultColor",
-		Length: 999,
+		Brand:  DefaultBrand,
+		Color:  DefaultColor,
+		Weight: DefaultWeight,
 	}}
 }
 
@@ -33,6 +39,6 @@ func (sb *SailboatBuilder) Color(color string) *SailboatBuilder {
 }
 
 func (sb *SailboatBuilder) Length(length int) *SailboatBuilder {
-	sb.boat.Length = length
+	sb.boat.Weight = length
 	return sb
 }

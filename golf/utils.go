@@ -12,12 +12,12 @@ func (c *GolfClub) String() string {
 	builder.WriteString(c.Brand)
 
 	builder.WriteString("\n")
-	builder.WriteString("Type: ")
-	builder.WriteString(c.Type)
+	builder.WriteString("Color: ")
+	builder.WriteString(c.Color)
 
 	builder.WriteString("\n")
-	builder.WriteString("Length: ")
-	builder.WriteString(fmt.Sprintf("%d", c.Length))
+	builder.WriteString("Weight: ")
+	builder.WriteString(fmt.Sprintf("%d", c.Weight))
 
 	return builder.String()
 }

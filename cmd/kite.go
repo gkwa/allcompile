@@ -21,7 +21,7 @@ to quickly create a Cobra application.`,
 		k := kite.NewKite(
 			kite.WithBrand("KiteCo"),
 			kite.WithColor("Red"),
-			kite.WithLength(30),
+			kite.WithWeight(30),
 		)
 
 		fmt.Println()

@@ -17,7 +17,7 @@ func (b *Sailboat) String() string {
 
 	builder.WriteString("\n")
 	builder.WriteString("Length: ")
-	builder.WriteString(fmt.Sprintf("%d", b.Length))
+	builder.WriteString(fmt.Sprintf("%d", b.Weight))
 
 	return builder.String()
 }

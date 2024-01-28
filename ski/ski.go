@@ -7,14 +7,20 @@ import (
 type Ski struct {
 	Brand  string
 	Color  string
-	Length int
+	Weight int
 }
+
+const (
+	DefaultBrand  = "DefaultSkiBrand"
+	DefaultColor  = "DefaultSkiColor"
+	DefaultWeight = 170
+)
 
 func NewSkiPrototype() *Ski {
 	return &Ski{
-		Brand:  "DefaultBrand",
-		Color:  "DefaultColor",
-		Length: 170,
+		Brand:  DefaultBrand,
+		Color:  DefaultColor,
+		Weight: DefaultWeight,
 	}
 }
 
@@ -22,7 +28,7 @@ func (s *Ski) Clone() *Ski {
 	return &Ski{
 		Brand:  s.Brand,
 		Color:  s.Color,
-		Length: s.Length,
+		Weight: s.Weight,
 	}
 }
 

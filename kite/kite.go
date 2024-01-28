@@ -1,15 +1,21 @@
 package kite
 
+const (
+	DefaultBrand  = "DefaultKiteBrand"
+	DefaultColor  = "DefaultKiteColor"
+	DefaultWeight = 16
+)
+
 type Kite struct {
 	Brand  string
 	Color  string
-	Length int
+	Weight int
 }
 
 type KiteOptions struct {
 	Brand  string
 	Color  string
-	Length int
+	Weight int
 }
 
 type KiteOption func(*KiteOptions)
@@ -26,17 +32,17 @@ func WithColor(color string) KiteOption {
 	}
 }
 
-func WithLength(length int) KiteOption {
+func WithWeight(weight int) KiteOption {
 	return func(opt *KiteOptions) {
-		opt.Length = length
+		opt.Weight = weight
 	}
 }
 
 func NewKite(options ...KiteOption) *Kite {
 	opts := &KiteOptions{
-		Brand:  "DefaultBrand",
-		Color:  "DefaultColor",
-		Length: 999,
+		Brand:  DefaultBrand,
+		Color:  DefaultColor,
+		Weight: DefaultWeight,
 	}
 
 	for _, option := range options {
@@ -46,6 +52,6 @@ func NewKite(options ...KiteOption) *Kite {
 	return &Kite{
 		Brand:  opts.Brand,
 		Color:  opts.Color,
-		Length: opts.Length,
+		Weight: opts.Weight,
 	}
 }

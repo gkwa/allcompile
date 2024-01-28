@@ -47,7 +47,7 @@ func runBasketball() {
 	fmt.Println(b1)
 
 	ballFactory = ball.NewBasketballFactory(
-		ball.WithSize(10),
+		ball.WithBrand("Wilson"),
 		ball.WithColor("Red"),
 		ball.WithWeight(20),
 	)

@@ -12,13 +12,13 @@ func TestUnmarshalGolfClubsFromJSON(t *testing.T) {
 	jsonData := `[
 		{
 			"Brand": "Titleist",
-			"Type": "Driver",
-			"Length": 45
+			"Color": "Purple",
+			"Weight": 45
 		},
 		{
 			"Brand": "Callaway",
-			"Type": "Iron",
-			"Length": 36
+			"Color": "Brown",
+			"Weight": 36
 		}
 	]`
 
@@ -26,8 +26,8 @@ func TestUnmarshalGolfClubsFromJSON(t *testing.T) {
 	err := json.Unmarshal([]byte(jsonData), &clubs)
 
 	expected := GolfClubs{
-		&GolfClub{Brand: "Titleist", Type: "Driver", Length: 45},
-		&GolfClub{Brand: "Callaway", Type: "Iron", Length: 36},
+		&GolfClub{Brand: "Titleist", Color: "Purple", Weight: 45},
+		&GolfClub{Brand: "Callaway", Color: "Brown", Weight: 36},
 	}
 
 	if err != nil {
@@ -44,10 +44,10 @@ func TestUnmarshalGolfClubsFromJSON(t *testing.T) {
 func TestNewGolfClubsAndAddClub(t *testing.T) {
 	var clubs GolfClubs
 
-	club1 := &GolfClub{Brand: "Titleist", Type: "Driver", Length: 45}
+	club1 := &GolfClub{Brand: "Titleist", Color: "Blue", Weight: 45}
 	clubs = clubs.AddClub(club1)
 
-	club2 := &GolfClub{Brand: "Callaway", Type: "Iron", Length: 36}
+	club2 := &GolfClub{Brand: "Callaway", Color: "Maroon", Weight: 36}
 	clubs = clubs.AddClub(club2)
 
 	expected := GolfClubs{club1, club2}

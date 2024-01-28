@@ -9,22 +9,22 @@ func TestSkiWithAllPropertiesOverridden(t *testing.T) {
 	expected := &Ski{
 		Brand:  "Atomic",
 		Color:  "Red",
-		Length: 180,
+		Weight: 180,
 	}
 
 	ski := NewSkiPrototype()
 	ski.Brand = "Atomic"
 	ski.Color = "Red"
-	ski.Length = 180
+	ski.Weight = 180
 
 	assertSkiProperties(t, expected, ski, "Ski with all properties overridden")
 }
 
 func TestSkiWithSinglePropertyOverridden(t *testing.T) {
 	expected := &Ski{
-		Brand:  "DefaultBrand",
+		Brand:  DefaultBrand,
 		Color:  "Blue",
-		Length: 170,
+		Weight: DefaultWeight,
 	}
 
 	ski := NewSkiPrototype()
@@ -35,9 +35,9 @@ func TestSkiWithSinglePropertyOverridden(t *testing.T) {
 
 func TestSkiWithNoPropertiesOverridden(t *testing.T) {
 	expected := &Ski{
-		Brand:  "DefaultBrand",
-		Color:  "DefaultColor",
-		Length: 170,
+		Brand:  DefaultBrand,
+		Color:  DefaultColor,
+		Weight: DefaultWeight,
 	}
 
 	ski := NewSkiPrototype()

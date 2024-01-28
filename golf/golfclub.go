@@ -1,14 +1,14 @@
 package golf
 
 const (
-	defaultBrand  = "DefaultBrand"
-	defaultType   = "DefaultType"
-	defaultLength = 999
+	DefaultBrand  = "DefaultGolfBrand"
+	DefaultColor  = "DefaultGolfColor"
+	DefaultWeight = 3
 )
 
 type GolfClub struct {
-	Brand, Type string
-	Length      int
+	Brand, Color string
+	Weight       int
 }
 
 type GolfClubBuilder struct {
@@ -18,9 +18,9 @@ type GolfClubBuilder struct {
 func NewGolfClubBuilder() *GolfClubBuilder {
 	return &GolfClubBuilder{
 		&GolfClub{
-			Brand:  defaultBrand,
-			Type:   defaultType,
-			Length: defaultLength,
+			Brand:  DefaultBrand,
+			Color:  DefaultColor,
+			Weight: DefaultWeight,
 		}}
 }
 
@@ -32,11 +32,11 @@ func (gb *GolfClubBuilder) Brand(brand string) *GolfClubBuilder {
 }
 
 func (gb *GolfClubBuilder) Type(clubType string) *GolfClubBuilder {
-	gb.club.Type = clubType
+	gb.club.Color = clubType
 	return gb
 }
 
 func (gb *GolfClubBuilder) Length(length int) *GolfClubBuilder {
-	gb.club.Length = length
+	gb.club.Weight = length
 	return gb
 }
