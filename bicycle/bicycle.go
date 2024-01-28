@@ -13,8 +13,8 @@ type Bicycle struct {
 // NewBicycle creates a new Bicycle instance with default values and allows specifying properties.
 func NewBicycle(properties ...func(*Bicycle)) *Bicycle {
 	bike := &Bicycle{
-		Brand:  "Unknown",
-		Color:  "Unspecified",
+		Brand:  "DefaultBrand",
+		Color:  "DefaultColor",
 		Weight: 999,
 	}
 

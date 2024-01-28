@@ -1,4 +1,3 @@
-// bicycle/bicycle_test.go
 package bicycle
 
 import (
@@ -12,7 +11,7 @@ func TestBicycleProperties(t *testing.T) {
 		expected    Bicycle
 	}{
 		{
-			desc: "Bicycle 1: all properties specified",
+			desc: "Bicycle 1: all properties specified using variadic constructor",
 			constructor: func() *Bicycle {
 				return NewBicycle(
 					WithBrand("Giant"),
@@ -27,14 +26,14 @@ func TestBicycleProperties(t *testing.T) {
 			},
 		},
 		{
-			desc: "Bicycle 2: single property specified",
+			desc: "Bicycle 2: single property specified using variadic constructor",
 			constructor: func() *Bicycle {
 				return NewBicycle(
 					WithColor("Green"),
 				)
 			},
 			expected: Bicycle{
-				Brand:  "Unknown",
+				Brand:  "DefaultBrand",
 				Color:  "Green",
 				Weight: 999,
 			},
@@ -72,7 +71,7 @@ func TestBicycleProperties(t *testing.T) {
 			},
 		},
 		{
-			desc: "Bicycle 5: two properties specified using With functions",
+			desc: "Bicycle 5: two properties specified using variadic constuctor",
 			constructor: func() *Bicycle {
 				bike := NewBicycle(
 					WithBrand("Giant"),
@@ -83,7 +82,7 @@ func TestBicycleProperties(t *testing.T) {
 			},
 			expected: Bicycle{
 				Brand:  "Giant",
-				Color:  "Unspecified",
+				Color:  "DefaultColor",
 				Weight: 10,
 			},
 		},
@@ -95,8 +94,8 @@ func TestBicycleProperties(t *testing.T) {
 				return bike
 			},
 			expected: Bicycle{
-				Brand:  "Unknown",
-				Color:  "Unspecified",
+				Brand:  "DefaultBrand",
+				Color:  "DefaultColor",
 				Weight: 999,
 			},
 		},
