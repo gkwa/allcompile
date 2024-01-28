@@ -1,14 +1,26 @@
 package golf
 
+const (
+	defaultBrand  = "DefaultBrand"
+	defaultType   = "DefaultType"
+	defaultLength = 999
+)
+
 type GolfClub struct {
 	Brand, Type string
 	Length      int
 }
 
-type GolfClubBuilder struct{ club *GolfClub }
+type GolfClubBuilder struct {
+	club *GolfClub
+}
 
 func NewGolfClubBuilder() *GolfClubBuilder {
-	return &GolfClubBuilder{&GolfClub{"DefaultBrand", "DefaultType", 999}}
+	return &GolfClubBuilder{&GolfClub{
+		Brand:  defaultBrand,
+		Type:   defaultType,
+		Length: defaultLength,
+	}}
 }
 
 func (gb *GolfClubBuilder) Build() *GolfClub { return gb.club }
