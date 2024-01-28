@@ -18,6 +18,10 @@ func NewSailboatBuilder() *SailboatBuilder {
 	}}
 }
 
+func (sb *SailboatBuilder) Build() *Sailboat {
+	return sb.boat
+}
+
 func (sb *SailboatBuilder) Brand(brand string) *SailboatBuilder {
 	sb.boat.Brand = brand
 	return sb
@@ -31,8 +35,4 @@ func (sb *SailboatBuilder) Color(color string) *SailboatBuilder {
 func (sb *SailboatBuilder) Length(length int) *SailboatBuilder {
 	sb.boat.Length = length
 	return sb
-}
-
-func (sb *SailboatBuilder) Build() *Sailboat {
-	return sb.boat
 }
