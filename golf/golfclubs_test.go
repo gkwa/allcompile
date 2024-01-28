@@ -42,7 +42,7 @@ func TestUnmarshalGolfClubsFromJSON(t *testing.T) {
 }
 
 func TestNewGolfClubsAndAddClub(t *testing.T) {
-	clubs := NewGolfClubs()
+	var clubs GolfClubs
 
 	club1 := &GolfClub{Brand: "Titleist", Type: "Driver", Length: 45}
 	clubs = clubs.AddClub(club1)

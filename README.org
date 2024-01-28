@@ -14,6 +14,7 @@ make test
 ./allcompile kite
 ./allcompile ski
 ./allcompile basketball
+./allcompile golf
 #+end_example
 
 ** 
@@ -32,6 +33,7 @@ design pattern.
 
 Please show full code and use txtar format
 
+*** golf: builder pattern along with json marshalling
 ** gpt
 *** topic
 

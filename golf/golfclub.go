@@ -16,11 +16,12 @@ type GolfClubBuilder struct {
 }
 
 func NewGolfClubBuilder() *GolfClubBuilder {
-	return &GolfClubBuilder{&GolfClub{
-		Brand:  defaultBrand,
-		Type:   defaultType,
-		Length: defaultLength,
-	}}
+	return &GolfClubBuilder{
+		&GolfClub{
+			Brand:  defaultBrand,
+			Type:   defaultType,
+			Length: defaultLength,
+		}}
 }
 
 func (gb *GolfClubBuilder) Build() *GolfClub { return gb.club }
