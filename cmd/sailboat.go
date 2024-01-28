@@ -45,13 +45,13 @@ func runSailboat() {
 		Build()
 	fmt.Println()
 	fmt.Println("Sailboat 1:")
-	fmt.Println(boat1.String())
+	fmt.Println(boat1)
 
 	boat2 := sailboat.NewSailboatBuilder().
 		Build()
 	fmt.Println()
 	fmt.Println("Sailboat 2:")
-	fmt.Println(boat2.String())
+	fmt.Println(boat2)
 
 	boat3 := sailboat.NewSailboatBuilder().
 		Color("Blue").
@@ -60,5 +60,5 @@ func runSailboat() {
 		Build()
 	fmt.Println()
 	fmt.Println("Sailboat 3:")
-	fmt.Println(boat3.String())
+	fmt.Println(boat3)
 }

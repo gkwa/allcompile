@@ -11,7 +11,7 @@ func TestBicycleProperties(t *testing.T) {
 		expected    Bicycle
 	}{
 		{
-			desc: "Bicycle 1: all properties specified using variadic constructor",
+			desc: "Bicycle 1: all properties specified using functional options",
 			constructor: func() *Bicycle {
 				return NewBicycle(
 					WithBrand("Giant"),
@@ -26,7 +26,7 @@ func TestBicycleProperties(t *testing.T) {
 			},
 		},
 		{
-			desc: "Bicycle 2: single property specified using variadic constructor",
+			desc: "Bicycle 2: single property specified using functional options",
 			constructor: func() *Bicycle {
 				return NewBicycle(
 					WithColor("Green"),

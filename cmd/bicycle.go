@@ -48,7 +48,7 @@ func run() {
 
 	fmt.Println()
 	fmt.Println("Bicycle 1:")
-	fmt.Println(bike1.String())
+	fmt.Println(bike1)
 
 	bike1.Pedal()
 	bike1.Brake()
@@ -59,7 +59,7 @@ func run() {
 
 	fmt.Println()
 	fmt.Println("Bicycle 2:")
-	fmt.Println(bike2.String())
+	fmt.Println(bike2)
 
 	bike2.Pedal()
 	bike2.Brake()
@@ -73,7 +73,7 @@ func run() {
 	fmt.Println()
 	fmt.Println("Bicycle 3:")
 	bike3.Brake()
-	fmt.Println(bike3.String())
+	fmt.Println(bike3)
 
 	bike4 := &bicycle.Bicycle{
 		Brand: "SpeedX",
@@ -82,7 +82,7 @@ func run() {
 	fmt.Println()
 	fmt.Println("Bicycle 4:")
 	bike4.Pedal()
-	fmt.Println(bike4.String())
+	fmt.Println(bike4)
 
 	bike5 := bicycle.NewBicycle(
 		bicycle.WithBrand("Giant"),
@@ -92,12 +92,12 @@ func run() {
 	fmt.Println()
 	fmt.Println("Bicycle 5:")
 	bike5.Pedal()
-	fmt.Println(bike5.String())
+	fmt.Println(bike5)
 
 	bike6 := bicycle.NewBicycle()
 
 	fmt.Println()
 	fmt.Println("Bicycle 6:")
 	bike6.Pedal()
-	fmt.Println(bike5.String())
+	fmt.Println(bike5)
 }
