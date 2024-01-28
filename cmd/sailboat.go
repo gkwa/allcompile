@@ -44,16 +44,16 @@ func runSailboat() {
 	fmt.Println("Sailboat 1:")
 	fmt.Println(boat1.String())
 
-	boat2 := sailboat.NewSailboatBuilder().
-		Brand("Hobie Cat").
-		Build()
+	boat2 := sailboat.NewSailboat(
+		sailboat.WithLength(100),
+	)
 	fmt.Println()
 	fmt.Println("Sailboat 2:")
 	fmt.Println(boat2.String())
 
-	boat3 := sailboat.NewSailboat(
-		sailboat.WithLength(100),
-	)
+	boat3 := sailboat.NewSailboatBuilder().
+		Brand("Hobie Cat").
+		Build()
 	fmt.Println()
 	fmt.Println("Sailboat 3:")
 	fmt.Println(boat3.String())
