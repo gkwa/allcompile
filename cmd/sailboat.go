@@ -40,19 +40,23 @@ func init() {
 }
 
 func runSailboat() {
-	boat1 := sailboat.NewSailboat()
+	boat1 := sailboat.NewSailboatBuilder().
+		Brand("Hobie Cat").
+		Build()
+	fmt.Println()
 	fmt.Println("Sailboat 1:")
 	fmt.Println(boat1.String())
 
-	boat2 := sailboat.NewSailboat(
-		sailboat.WithLength(100),
-	)
+	boat2 := sailboat.NewSailboatBuilder().
+		Build()
 	fmt.Println()
 	fmt.Println("Sailboat 2:")
 	fmt.Println(boat2.String())
 
 	boat3 := sailboat.NewSailboatBuilder().
-		Brand("Hobie Cat").
+		Color("Blue").
+		Brand("Catalina").
+		Length(16).
 		Build()
 	fmt.Println()
 	fmt.Println("Sailboat 3:")

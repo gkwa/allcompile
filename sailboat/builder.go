@@ -1,6 +1,12 @@
 // sailboat/builder.go
 package sailboat
 
+type Sailboat struct {
+	Brand  string
+	Color  string
+	Length int
+}
+
 // SailboatBuilder is a builder for creating Sailboat instances.
 type SailboatBuilder struct {
 	boat *Sailboat
