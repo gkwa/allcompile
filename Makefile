@@ -20,8 +20,7 @@ $(BIN): $(GO_FILES) $(GO_DEPS)
 
 .PHONY: test
 test: $(BIN)
-	./$(BIN) bicycle
-	./$(BIN) sailboat
+	go test ./...
 
 .PHONY: install
 install: $(BIN)
